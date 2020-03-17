@@ -1,0 +1,322 @@
+.slot .empty {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+.slot {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.hole {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    transform: translate(-30px, -30px);
+    border: 40px blue solid;
+}
+
+.player1 {
+    background: -webkit-radial-gradient(25px 25px, circle, red, #000);
+    background: -moz-radial-gradient(25px 25px, circle, red, #000);
+    background: radial-gradient(25px 25px, circle, red, #000);
+}
+
+.player2 {
+    background: -webkit-radial-gradient(30px 25px, circle, yellow, #000);
+    background: -moz-radial-gradient(25px 25px, circle, yellow, #000);
+    background: radial-gradient(25px 25px, circle, yellow, #000);
+}
+
+.board {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    align-self: center;
+    padding-top: 120px;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+}
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    top: 0;
+    bottom: 100%;
+    z-index: 99;
+}
+.victory-banner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    top: 300px;
+    height: 300px;
+    width: 100%;
+    background: url(https://media1.giphy.com/media/UQx1YFSYxCNEI/giphy.gif?cid=790b761150a12ee721a4130144ae3317b8a02eb6a5035ec1&rid=giphy.gif)
+        0% 0% repeat;
+    z-index: 100;
+    -webkit-animation: animatedBackground 30s infinite, animateSize 4s linear;
+}
+
+@-webkit-keyframes animateSize {
+    from {
+        height: 0px;
+        width: 0px;
+    }
+    to {
+        height: 300px;
+        width: 100%;
+    }
+}
+@-keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+.congratulation {
+    font-size: 50px;
+    color: black;
+    z-index: 8;
+    width: auto;
+
+    -webkit-animation: color-change 20s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        color: seagreen;
+    }
+    20% {
+        color: purple;
+    }
+    30% {
+        color: darkblue;
+    }
+    40% {
+        color: lavender;
+    }
+    50% {
+        color: lightblue;
+    }
+    60% {
+        color: yellow;
+    }
+    70% {
+        color: red;
+    }
+    80% {
+        color: green;
+    }
+    100% {
+        color: hotpink;
+    }
+}
+
+.player1ball {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    background: -webkit-radial-gradient(25px 25px, circle, red, #000);
+    background: -moz-radial-gradient(25px 25px, circle, red, #000);
+    background: radial-gradient(25px 25px, circle, red, #000);
+
+    /* Animation to spin and move the sphere */
+    -webkit-animation: spin 3000ms linear, moveLeftToRight 5s linear infinite;
+    -moz-animation: spin 3000ms linear, moveLeftToRight 5s linear infinite;
+    -ms-animation: spin 3000ms linear infinite, moveLeftToRight 5s linear;
+    animation: spin 3000ms linear infinite, moveLeftToRight 5s linear;
+
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+
+    position: absolute;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    color: white;
+    vertical-align: middle;
+    align-items: center;
+
+    /* Spinning the sphere using key frames */
+    @-ms-keyframes spin {
+        from {
+            -ms-transform: rotate(0deg);
+        }
+        to {
+            -ms-transform: rotate(360deg);
+        }
+    }
+    @-moz-keyframes spin {
+        from {
+            -moz-transform: rotate(0deg);
+        }
+        to {
+            -moz-transform: rotate(360deg);
+        }
+    }
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes spin {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    /* Move sphere from left to right */
+    @-moz-keyframes moveLeftToRight {
+        0% {
+            left: -100px;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+    @-ms-keyframes moveLeftToRight {
+        0% {
+            left: -100px;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+    @keyframes moveLeftToRight {
+        0% {
+            left: -100px;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+}
+
+.player2ball {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 50%;
+    background: -webkit-radial-gradient(25px 25px, circle, yellow, #000);
+    background: -moz-radial-gradient(25px 25px, circle, yellow, #000);
+    background: radial-gradient(25px 25px, circle, yellow, #000);
+
+    /* Animation to spin and move the sphere */
+    -webkit-animation: spin 3000ms linear, moveLeftToRight 5s linear infinite;
+    -moz-animation: spin 3000ms linear, moveLeftToRight 5s linear infinite;
+    -ms-animation: spin 3000ms linear infinite, moveLeftToRight 5s linear;
+    animation: spin 3000ms linear infinite, moveLeftToRight 5s linear;
+
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+
+    position: absolute;
+    display: flex;
+    left: 85%;
+    justify-content: center;
+    color: white;
+    vertical-align: middle;
+    align-items: center;
+}
+/* Spinning the sphere using key frames */
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(360deg);
+    }
+    to {
+        -ms-transform: rotate(0deg);
+    }
+}
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(360deg);
+    }
+    to {
+        -moz-transform: rotate(0deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(360deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+/* Move sphere from left to right */
+@-moz-keyframes moveLeftToRight {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 00px;
+    }
+}
+@-ms-keyframes moveLeftToRight {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 00px;
+    }
+}
+@keyframes moveLeftToRight {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 00px;
+    }
+}
+
+button {
+    align-self: center;
+    align-items: flex-end;
+    z-index: 100;
+    /* transition: translateY(50%); */
+}
+#redImage {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
+#greenImage {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
